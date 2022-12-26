@@ -1,23 +1,21 @@
 {
-    "name": "dawn",
-    "description": "A Ghost theme",
+    "name": "chrg-website-theme",
+    "description": "Website theme for chrg.nl",
     "version": "1.0.0",
     "private": true,
     "engines": {
         "ghost": ">=5.0.0"
     },
-    "license": "MIT",
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Christiaan Goossens",
+        "email": "contact@christiaangoossens.nl",
+        "url": "https://chrg.nl"
     },
     "keywords": [
         "ghost",
         "theme",
         "ghost-theme"
     ],
-    "docs": "https://dawn.ghost.io/about/",
     "config": {
         "posts_per_page": 5,
         "image_sizes": {
@@ -44,7 +42,11 @@
         "custom": {
             "navigation_layout": {
                 "type": "select",
-                "options": ["Logo on the left", "Logo in the middle", "Stacked"],
+                "options": [
+                    "Logo on the left",
+                    "Logo in the middle",
+                    "Stacked"
+                ],
                 "default": "Logo on the left"
             },
             "title_font": {
