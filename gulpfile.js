@@ -1,4 +1,4 @@
-const {series, parallel, watch, src, dest} = require('gulp');
+const { series, parallel, watch, src, dest } = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
@@ -13,6 +13,7 @@ const zip = require('gulp-zip');
 const easyimport = require('postcss-easy-import');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const tailwindcss = require('tailwindcss');
 
 function serve(done) {
     livereload.listen();
@@ -37,13 +38,14 @@ function hbs(done) {
 
 function css(done) {
     pump([
-        src('assets/css/screen.css', {sourcemaps: true}),
+        src('assets/css/screen.css', { sourcemaps: true }),
         postcss([
             easyimport,
             autoprefixer(),
-            cssnano()
+            cssnano(),
+            tailwindcss()
         ]),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
@@ -55,10 +57,10 @@ function js(done) {
             'node_modules/@tryghost/shared-theme-assets/assets/js/v1/main.js',
             'assets/js/lib/*.js',
             'assets/js/main.js'
-        ], {sourcemaps: true}),
+        ], { sourcemaps: true }),
         concat('main.min.js'),
         uglify(),
-        dest('assets/built/', {sourcemaps: '.'}),
+        dest('assets/built/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
